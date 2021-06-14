@@ -26,9 +26,8 @@ class SearchableMovieReviewsContainer extends Component {
   }
 
   searchResults = (reviewData) => {
-    if (reviewData.results === []) {
+    if (!reviewData.results) {
       alert("Please try another term")
-      return
     } else {
       this.setState({reviews: reviewData.results})
     }
@@ -46,10 +45,10 @@ class SearchableMovieReviewsContainer extends Component {
 
   render() {
     return (
-      <div>
+      <>
         {this.searchForm()}
         <div className="searchable-movie-reviews"><MovieReviews reviews={this.state.reviews} /></div>
-      </div>
+      </>
     )
   }
 }
